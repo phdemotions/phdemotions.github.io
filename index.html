@@ -17,14 +17,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes spinCD {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    @keyframes shine {
-      0% { background-position: -200px; }
-      100% { background-position: 200px; }
+    @keyframes swirl {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     body {
@@ -57,31 +53,19 @@
       z-index: 0;
     }
 
-    .cd-bg {
+    .pastel-sphere {
       position: fixed;
       top: 50%;
       left: 50%;
       width: 200vmax;
       height: 200vmax;
       transform: translate(-50%, -50%);
-      background: radial-gradient(circle at 30% 30%, #dcdcdc, #999);
+      background: radial-gradient(circle at center, #ffe0ec, #e0f7ff, #f4ecff);
+      background-size: 300% 300%;
       border-radius: 50%;
-      box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.2);
-      animation: spinCD 60s linear infinite;
+      animation: swirl 45s ease-in-out infinite;
       z-index: 1;
-      overflow: hidden;
-    }
-
-    .cd-bg::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 100%;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shine 10s ease-in-out infinite;
-      background-size: 400px 100%;
+      filter: blur(2px) contrast(1.05);
     }
 
     h1 {
@@ -138,19 +122,6 @@
       background-size: contain;
     }
 
-    .scribble-arrow {
-      position: absolute;
-      top: -40px;
-      left: -50px;
-      width: 100px;
-      height: 100px;
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q30,10 60,40 T100,60" stroke="black" stroke-width="2" fill="none"/></svg>');
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 3;
-    }
-
     .pill-button:hover {
       transform: translateY(-2px);
     }
@@ -185,9 +156,9 @@
   <h1>Josh Gonzales</h1>
   <p class="mission">Analog vibes. Digital research. Human signal.</p>
   <div class="button-container">
-    <a href="/research/" class="pill-button pill-research">Research<div class="scribble-arrow"></div></a>
+    <a href="/research/" class="pill-button pill-research">Research</a>
     <a href="/epk.html" class="pill-button pill-music">Music</a>
   </div>
-  <div class="cd-bg"></div>
+  <div class="pastel-sphere"></div>
 </body>
 </html>
