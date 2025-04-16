@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Josh Gonzales</title>
   <meta name="description" content="Exploring the intersection of AI and human creativity">
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Silkscreen&display=swap" rel="stylesheet">
   <style>
     @keyframes scanlines {
       0% { background-position: 0 0; }
-      100% { background-position: 0 200px; }
+      100% { background-position: 0 400px; }
     }
 
     @keyframes fadeIn {
@@ -56,8 +56,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0.035) 0px, rgba(0,0,0,0.035) 2px, transparent 2px, transparent 6px);
-      animation: scanlines 6s linear infinite;
+      background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 4px, transparent 4px, transparent 12px);
+      animation: scanlines 15s linear infinite;
       pointer-events: none;
       z-index: 0;
     }
@@ -66,8 +66,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 200vmax;
-      height: 200vmax;
+      width: 300vmax;
+      height: 300vmax;
       transform: translate(-50%, -50%);
       background: radial-gradient(circle at 30% 30%, #dcdcdc, #999);
       border-radius: 50%;
@@ -89,25 +89,26 @@
       background-size: 400px 100%;
     }
 
-    h1, .mission, .button-container {
-      position: relative;
-      z-index: 2;
-    }
-
     h1 {
+      font-family: 'Share Tech Mono', monospace;
       font-size: 2.5rem;
       margin-bottom: 1rem;
       letter-spacing: 1px;
       color: #222;
+      position: relative;
+      z-index: 2;
       animation: fadeIn 2s ease-in-out;
     }
 
     .mission {
-      font-size: 1.2rem;
+      font-family: 'Silkscreen', monospace;
+      font-size: 1.1rem;
       max-width: 600px;
       margin-bottom: 2.5rem;
       color: #555;
       padding: 0 1rem;
+      position: relative;
+      z-index: 2;
       animation: fadeIn 3s ease-in-out;
     }
 
@@ -115,22 +116,23 @@
       display: flex;
       gap: 3rem;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
       animation: fadeIn 4s ease-in-out;
     }
 
     .pill-button {
+      font-family: 'Silkscreen', monospace;
       font-size: 1rem;
       padding: 1rem 2rem;
-      border: none;
-      border-radius: 4px;
-      background: repeating-linear-gradient(135deg, #000, #000 10px, #111 10px, #111 20px);
+      background-color: #000;
       color: inherit;
       text-decoration: none;
-      font-weight: bold;
       position: relative;
+      clip-path: polygon(0% 5%, 5% 0%, 95% 0%, 100% 5%, 100% 95%, 95% 100%, 5% 100%, 0% 95%);
       box-shadow: 3px 3px 0px #ccc;
+      border: 2px dashed;
       transition: transform 0.1s ease;
-      font-family: inherit;
     }
 
     .pill-button:hover {
@@ -143,12 +145,12 @@
 
     .pill-research {
       color: #7FDBFF;
-      border: 2px dashed #7FDBFF;
+      border-color: #7FDBFF;
     }
 
     .pill-music {
       color: #FF8DAA;
-      border: 2px dashed #FF8DAA;
+      border-color: #FF8DAA;
     }
 
     @media screen and (max-width: 600px) {
