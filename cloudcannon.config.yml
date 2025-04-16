@@ -1,0 +1,171 @@
+collections_config:
+  pages:
+    path: ''
+    name: Pages
+    icon: wysiwyg
+  docs:
+    path: _docs
+    name: Docs
+    icon: dock
+  docs_drafts:
+    path: docs/_drafts
+    name: Docs Drafts
+    icon: drafts
+    create:
+      path: ''
+      publish_to: docs_posts
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.docs_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.docs_posts[*].tags
+          allow_create: true
+  docs_posts:
+    path: docs/_posts
+    name: Docs Posts
+    icon: compost
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.docs_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.docs_posts[*].tags
+          allow_create: true
+    add_options:
+      - name: Add Post
+      - name: Add Draft
+        collection: docs_drafts
+  drafts_posts:
+    path: _posts/_drafts
+    name: Drafts Posts
+    icon: drafts
+    create:
+      path: ''
+      publish_to: posts_posts
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.posts_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.posts_posts[*].tags
+          allow_create: true
+  pets:
+    path: _pets
+    name: Pets
+    icon: pets
+  portfolio:
+    path: _portfolio
+    name: Portfolio
+    icon: portrait
+  posts_posts:
+    path: _posts/_posts
+    name: Posts Posts
+    icon: compost
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.posts_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.posts_posts[*].tags
+          allow_create: true
+    add_options:
+      - name: Add Post
+      - name: Add Draft
+        collection: drafts_posts
+  recipes:
+    path: _recipes
+    name: Recipes
+    icon: local_dining
+  test_drafts:
+    path: test/_drafts
+    name: Test Drafts
+    icon: drafts
+    create:
+      path: ''
+      publish_to: test_posts
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.test_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.test_posts[*].tags
+          allow_create: true
+  test_posts:
+    path: test/_posts
+    name: Test Posts
+    icon: sports
+    create:
+      path: >-
+        [relative_base_path]/{date|year}-{date|month}-{date|day}-{title|slugify}.[ext]
+    _inputs:
+      categories:
+        type: multiselect
+        options:
+          values: collections.test_posts[*].categories
+          allow_create: true
+      tags:
+        type: multiselect
+        options:
+          values: collections.test_posts[*].tags
+          allow_create: true
+    add_options:
+      - name: Add Post
+      - name: Add Draft
+        collection: test_drafts
+  data:
+    path: _data
+    name: Data
+    icon: data_usage
+    disable_url: true
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
+paths:
+  static: ''
+  uploads: uploads
+timezone: America/Toronto
+markdown:
+  engine: kramdown
+  options:
+    heading_ids: true
+    gfm: true
+    breaks: false
+    quotes: ‘’“”
+    typographer: true
+    attributes: true
+    attribute_elements:
+      inline: right
+      block: below
+      tr: none
+      td: none
+      li: right-of-prefix
+    treat_indentation_as_code: true
+_snippets_imports:
+  jekyll: true
