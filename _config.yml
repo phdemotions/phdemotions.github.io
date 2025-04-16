@@ -1,0 +1,17 @@
+title: "Josh Gonzales"
+email: "your.email@domain.com"
+description: >-
+  PhD Candidate in Consumer Behaviour at the University of Guelph. Researching how emotion, uncertainty, and meaning shape everyday decisions.
+baseurl: ""
+url: "https://yourusername.github.io"
+author:
+  name: "Josh Gonzales"
+  links:
+    - label: "Google Scholar"
+      url: "https://scholar.google.ca/citations?hl=en&user=syZgiY0AAAAJ"
+    - label: "Psychology Today – Points on the Board"
+      url: "https://www.psychologytoday.com/blog/points-on-the-board"
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap

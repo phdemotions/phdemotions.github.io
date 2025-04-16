@@ -1,0 +1,9 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "Research"
+    url: /research/
+  - title: "Google Scholar"
+    external_url: https://scholar.google.ca/citations?hl=en&user=syZgiY0AAAAJ
+  - title: "Psychology Today"
+    external_url: https://www.psychologytoday.com/blog/points-on-the-board
