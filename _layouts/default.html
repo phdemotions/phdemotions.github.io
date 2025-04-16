@@ -10,6 +10,9 @@
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}" dir="{% if site.rtl %}rtl{% else %}ltr{% endif %}">
+    <span class="visually-hidden">
+      PhD Candidate in Marketing and Consumer Behaviour | Emotion | Uncertainty | Creativity | Technology | AI | Human-centered design | Algorithmic bias | Digital identity | Music perception research
+    </span>    
     {% include_cached skip-links.html %}
     {% include_cached masthead.html %}
 
@@ -33,4 +36,5 @@
 
     {% include scripts.html %}
   </body>
+
 </html>
