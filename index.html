@@ -138,6 +138,19 @@
       background-size: contain;
     }
 
+    .scribble-arrow {
+      position: absolute;
+      top: -40px;
+      left: -50px;
+      width: 100px;
+      height: 100px;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M10,50 Q30,10 60,40 T100,60" stroke="black" stroke-width="2" fill="none"/></svg>');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 3;
+    }
+
     .pill-button:hover {
       transform: translateY(-2px);
     }
@@ -172,7 +185,7 @@
   <h1>Josh Gonzales</h1>
   <p class="mission">Analog vibes. Digital research. Human signal.</p>
   <div class="button-container">
-    <a href="/research/" class="pill-button pill-research">Research</a>
+    <a href="/research/" class="pill-button pill-research">Research<div class="scribble-arrow"></div></a>
     <a href="/epk.html" class="pill-button pill-music">Music</a>
   </div>
   <div class="cd-bg"></div>

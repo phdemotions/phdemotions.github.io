@@ -4,4 +4,7 @@ title: "Research"
 permalink: /research/
 ---
 
-Research areas, publications, and working papers.
+Research
+
+Peer Reviewed Publications
+Working Papers 
