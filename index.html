@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Josh Gonzales</title>
   <meta name="description" content="Exploring the intersection of AI and human creativity">
-  <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
   <style>
     @keyframes scanlines {
       0% { background-position: 0 0; }
@@ -22,7 +22,7 @@
       100% { transform: scale(4); opacity: 0; }
     }
 
-    @keyframes spin {
+    @keyframes spinCD {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
@@ -37,7 +37,7 @@
       padding: 2rem;
       background-color: #f4f1ec;
       color: #333;
-      font-family: 'Major Mono Display', monospace;
+      font-family: 'IBM Plex Mono', monospace;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -56,7 +56,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 2px);
+      background-image: repeating-linear-gradient(to bottom, rgba(0,0,0,0.05) 0px, rgba(0,0,0,0.05) 4px, transparent 4px, transparent 8px);
       animation: scanlines 2s linear infinite;
       pointer-events: none;
       z-index: 0;
@@ -64,13 +64,15 @@
 
     .cd-bg {
       position: absolute;
-      bottom: 10%;
-      width: 220px;
-      height: 220px;
+      top: 50%;
+      left: 50%;
+      width: 200vmax;
+      height: 200vmax;
+      transform: translate(-50%, -50%);
       background: radial-gradient(circle at 30% 30%, #dcdcdc, #999);
       border-radius: 50%;
-      box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
-      animation: spin 20s linear infinite;
+      box-shadow: inset 0 0 60px rgba(255, 255, 255, 0.2);
+      animation: spinCD 30s linear infinite;
       z-index: 1;
       overflow: hidden;
     }
@@ -181,10 +183,6 @@
       .button-container {
         flex-direction: column;
         gap: 1.5rem;
-      }
-      .cd-bg {
-        width: 160px;
-        height: 160px;
       }
     }
   </style>
