@@ -230,7 +230,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Toronto  # for proper post timestamps
 
 
 # Pagination with jekyll-paginate
@@ -316,7 +316,6 @@ compress_html:
 
 # Defaults
 defaults:
-  _posts
   - scope:
       path: "/blog/"
       type: posts
@@ -324,6 +323,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: false
       share: true
       related: true
