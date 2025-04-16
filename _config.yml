@@ -19,15 +19,15 @@ locale                   : "en-CA"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "Josh Gonzales"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : PhD Candidate in Consumer Psychology | Emotion | Uncertainty | Creativity | Technology | AI
 name                     : "Josh Gonzales"
 description              : >-
-  PhD Candidate in Consumer Behaviour at the University of Guelph. Researching how emotion, uncertainty, and meaning shape everyday decisions.
+  Josh Gonzales is a PhD Candidate in Marketing and Consumer Behaviour at the University of Guelph. His research explores how emotion and uncertainty shape decision-making in consumption, entertainment, and AI ethics. He writes regularly on public trust in algorithms, human creativity, and technological disruption.
 url                      : https://phdemotions.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : /assets/images/headshot.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
@@ -69,9 +69,9 @@ reCaptcha:
 atom_feed:
   path                   : # blank (default) uses feed.xml
   hide                   : # true, false (default)
-search                   : # true, false (default)
-search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia, google
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
+search_provider          : lunr # lunr (default), algolia, google
 lunr:
   search_within_pages    : # true, false (default)
 algolia:
@@ -96,13 +96,17 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : # Open Graph/Twitter default site image
+og_image                 : /assets/images/og-preview.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
-  links: # An array of links to social media profiles
+  type: Person
+  name: "Josh Gonzales"
+  links:
+    - "https://scholar.google.ca/citations?hl=en&user=syZgiY0AAAAJ"
+    - "https://www.psychologytoday.com/blog/points-on-the-board"
+    - "https://github.com/phdemotions"
+    - "https://instagram.com/phdemotions"
 
 # Analytics
 analytics:
@@ -116,9 +120,9 @@ analytics:
 author:
   name             : "Josh Gonzales"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : # "I am an **amazing** person."
-  location         : #"Somewhere"
-  email            :
+  bio: "PhD in Marketing and Consumer Behaviour | Writing on AI, uncertainty, and emotional decision-making."
+  location         : University of Guelph 
+  email            : jgonza10@uoguelph.ca
   links:
     #- label: "Email"
       #icon: "fas fa-fw fa-envelope-square"
