@@ -11,6 +11,11 @@
       100% { background-position: 1000px 1000px; }
     }
 
+    @keyframes matrixRain {
+      0% { opacity: 1; transform: translateY(-100%); }
+      100% { opacity: 0; transform: translateY(100vh); }
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -27,6 +32,34 @@
       height: 100vh;
       text-align: center;
       overflow: hidden;
+      position: relative;
+    }
+
+    .matrix-code {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .matrix-symbol {
+      position: absolute;
+      top: -2rem;
+      left: calc(100% * var(--x));
+      font-size: 1rem;
+      color: #0f0;
+      opacity: 0;
+      animation: matrixRain linear infinite;
+      animation-duration: calc(3s + 2s * var(--x));
+    }
+
+    h1, .mission, .button-container {
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
@@ -92,6 +125,14 @@
   </style>
 </head>
 <body>
+  <div class="matrix-code">
+    <span class="matrix-symbol" style="--x: 0.1">#</span>
+    <span class="matrix-symbol" style="--x: 0.25">&</span>
+    <span class="matrix-symbol" style="--x: 0.4">%</span>
+    <span class="matrix-symbol" style="--x: 0.55">@</span>
+    <span class="matrix-symbol" style="--x: 0.7">*</span>
+    <span class="matrix-symbol" style="--x: 0.85">!</span>
+  </div>
   <h1>Josh Gonzales</h1>
   <p class="mission">Exploring the intersection of AI and human creativity</p>
   <div class="button-container">
