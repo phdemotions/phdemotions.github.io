@@ -9,8 +9,8 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #111;
-      color: #fff;
+      background-color: #000;
+      color: #0f0;
       font-family: 'Courier New', Courier, monospace;
       display: flex;
       flex-direction: column;
@@ -24,13 +24,14 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       letter-spacing: 1px;
+      color: #0f0;
     }
 
     .mission {
       font-size: 1.2rem;
       max-width: 600px;
       margin-bottom: 2.5rem;
-      color: #ccc;
+      color: #0f0;
     }
 
     .button-container {
@@ -38,22 +39,38 @@
       gap: 1.5rem;
     }
 
-    .retro-button {
+    .pill-button {
       font-size: 1rem;
       padding: 0.8rem 2rem;
-      border: 2px solid #0ff;
+      border: 2px solid;
       background-color: transparent;
-      color: #0ff;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px #0ff;
     }
 
-    .retro-button:hover {
-      background-color: #0ff;
-      color: #111;
-      box-shadow: 0 0 20px #0ff;
+    .pill-research {
+      border-color: #00f;
+      color: #00f;
+      box-shadow: 0 0 10px #00f;
+    }
+
+    .pill-research:hover {
+      background-color: #00f;
+      color: #000;
+      box-shadow: 0 0 20px #00f;
+    }
+
+    .pill-music {
+      border-color: #f00;
+      color: #f00;
+      box-shadow: 0 0 10px #f00;
+    }
+
+    .pill-music:hover {
+      background-color: #f00;
+      color: #000;
+      box-shadow: 0 0 20px #f00;
     }
   </style>
 </head>
@@ -61,8 +78,8 @@
   <h1>Josh Gonzales</h1>
   <p class="mission">Exploring the intersection of AI and human creativity</p>
   <div class="button-container">
-    <a href="/research/" class="retro-button">Research</a>
-    <a href="/epk.html" class="retro-button">Music EPK</a>
+    <a href="/research/" class="pill-button pill-research">Research</a>
+    <a href="/epk.html" class="pill-button pill-music">Music</a>
   </div>
 </body>
 </html>
