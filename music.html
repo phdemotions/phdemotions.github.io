@@ -30,12 +30,13 @@
     header {
       background-color: #141421;
       text-align: center;
-      padding: 10px 10px 0;
+      padding: 5px 10px 0 10px;
       border-bottom: 5px solid #a6f0ff;
     }
 
     .revilla-title {
-      font-size: 36px;
+      margin-bottom: 5px;
+      font-size: 48px;
       color: #a6f0ff;
       letter-spacing: 4px;
       position: relative;
@@ -75,23 +76,23 @@
     }
 
     .nav-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-    }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+      }
 
     nav a {
       flex: 1 1 100px;
       max-width: 120px;
       box-sizing: border-box;
       display: inline-block;
-      padding: 6px 10px;
+      padding: 10px 14px;
       background: #a6f0ff;
       color: #000;
       border: 3px solid #000;
       box-shadow: 2px 2px #000;
-      font-size: 14px;
+      font-size: 18px;
       transition: all 0.1s ease;
     }
 
@@ -114,7 +115,7 @@
     }
 
     p, iframe, form {
-      font-size: 18px;
+      font-size: 20px;
       line-height: 1.6;
       max-width: 700px;
       margin: 0 auto 20px;
@@ -157,6 +158,37 @@
         display: block;
         margin: 0 auto 10px auto;
       }
+
+      nav {
+        text-align: center;
+      }
+
+      .nav-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .nav-container.open {
+        display: flex;
+      }
+
+      nav a {
+        width: 90%;
+        margin: 5px 0;
+        font-size: 20px;
+        padding: 14px 18px;
+      }
+
+      .revilla-title {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .sprite {
+        margin-top: 10px;
+      }
+    }
 
       nav {
         text-align: center;
