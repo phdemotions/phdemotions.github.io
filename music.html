@@ -41,31 +41,43 @@
       cursor: pointer;
     }
 
-    nav ul.nav-links {
-      list-style: none;
-      padding: 0;
-      margin: 10px 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
+    
 
-    nav ul.nav-links li a {
-      padding: 12px 18px;
-      background: #a6f0ff;
-      color: #000;
-      text-decoration: none;
-      border: 2px solid #000;
-      font-size: 20px;
-      font-family: 'VT323', monospace;
-      display: inline-block;
-    }
+    
 
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+  }
+
+  .nav-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 8px;
+  }
+
+  .nav-container.open {
+    display: flex;
+  }
+
+  .nav-container a {
+    width: 90%;
+    text-align: center;
+    font-size: 22px;
+    padding: 14px 18px;
+    background: #a6f0ff;
+    color: #000;
+    border: 2px solid #000;
+    font-family: 'VT323', monospace;
+  }
+
+  .revilla-title {
+    font-size: 36px;
+  }
+}
 
       nav ul.nav-links {
         display: none;
@@ -388,7 +400,7 @@
   </style>
 <script>
   function toggleNav() {
-    document.querySelector('nav ul.nav-links').classList.toggle('open');
+    document.getElementById('navMenu').classList.toggle('open');
   }
 </script>
 </head>
@@ -399,18 +411,16 @@
     <h1 class="revilla-title">REVILLA</h1>
     <button class="nav-toggle" onclick="toggleNav()">☰</button>
   </div>
-  <nav id="navMenu">
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#epk">EPK</a></li>
-      <li><a href="#music">Music</a></li>
-      <li><a href="#videos">Videos</a></li>
-      <li><a href="#tour">Tour</a></li>
-      <li><a href="#merch">Merch</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#newsletter">Newsletter</a></li>
-    </ul>
-  </nav>
+  <nav id="navMenu" class="nav-container">
+  <a href="#home">Home</a>
+  <a href="#epk">EPK</a>
+  <a href="#music">Music</a>
+  <a href="#videos">Videos</a>
+  <a href="#tour">Tour</a>
+  <a href="#merch">Merch</a>
+  <a href="#contact">Contact</a>
+  <a href="#newsletter">Newsletter</a>
+</nav>
 </header>
 
   
