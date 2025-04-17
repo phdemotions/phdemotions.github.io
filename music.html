@@ -6,14 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Official transmission from Revilla – the Lost Boy adrift in soundspace. Welcome to the Odyssey.">
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  <!-- Updated Font for readability -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
+  <style>
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Press Start 2P', monospace;
-      background: #0e0e1a url('assets/images/background.png') repeat;
+      font-family: 'VT323', monospace;
+      background: #000 url('assets/images/neon-odyssey-bg.png') no-repeat center center fixed; background-size: cover;
       background-size: 400px;
       color: #ffe6fa;
       scroll-behavior: smooth;
@@ -24,58 +25,7 @@
       text-decoration: none;
     }
 
-    /* Level Select Intro */
-    #intro-screen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #000;
-      color: #ffaad4;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 100000;
-    }
-
-    #intro-box {
-      text-align: center;
-    }
-
-    #intro-box p {
-      margin-bottom: 20px;
-    }
-
-    #intro-box button {
-      background: #0e0e1a;
-      color: #a6f0ff;
-      border: 2px solid #ffaad4;
-      padding: 10px 20px;
-      margin: 10px;
-      font-family: 'Press Start 2P', monospace;
-      cursor: pointer;
-    }
-
-    #intro-box button:hover {
-      background: #ffaad4;
-      color: #000;
-    }
-
-    /* Loading screen */
-    #loading-screen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: #000;
-      color: #ffaad4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 14px;
-      z-index: 9999;
-    }
-
+    /* Header */
     header {
       background-color: #141421;
       text-align: center;
@@ -83,15 +33,27 @@
       border-bottom: 5px solid #a6f0ff;
     }
 
-    .logo {
-      width: 280px;
-      max-width: 80%;
+    .revilla-title {
+      font-size: 48px;
+      color: #a6f0ff;
+      letter-spacing: 4px;
+      position: relative;
+      display: inline-block;
+      animation: glitch 1.5s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ffaad4; }
+      25% { text-shadow: -2px -1px #a6f0ff; }
+      50% { text-shadow: 2px -1px #ffaad4; }
+      75% { text-shadow: -2px 2px #a6f0ff; }
+      100% { text-shadow: 2px 2px #ffaad4; }
     }
 
     .sprite {
       width: 64px;
       height: 64px;
-      background-image: url('assets/images/sprite.png');
+      background-image: url('images/sprite.png');
       animation: float 2s infinite ease-in-out;
       margin: 20px auto;
     }
@@ -101,6 +63,7 @@
       50% { transform: translateY(-8px); }
     }
 
+    /* Navigation */
     nav {
       background-color: #1e1e2e;
       text-align: center;
@@ -110,15 +73,24 @@
       z-index: 100;
     }
 
+    .nav-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
     nav a {
+      flex: 1 1 100px;
+      max-width: 140px;
+      box-sizing: border-box;
       display: inline-block;
-      margin: 5px 8px;
       padding: 10px 15px;
       background: #a6f0ff;
       color: #000;
       border: 4px solid #000;
       box-shadow: 3px 3px #000;
-      font-size: 10px;
+      font-size: 14px;
       transition: all 0.1s ease;
     }
 
@@ -135,73 +107,22 @@
     }
 
     h2 {
-      position: relative;
       color: #a6f0ff;
-      font-size: 14px;
-      z-index: 1;
-      overflow: hidden;
-    }
-
-    h2::before, h2::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    h2::before {
-      top: -1px;
-      color: #ffaad4;
-      z-index: -1;
-      clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-    }
-
-    h2::after {
-      top: 1px;
-      color: #44f7ff;
-      z-index: -1;
-      clip-path: polygon(0 66%, 100% 66%, 100% 100%, 0 100%);
-    }
-
-    h2:hover::before {
-      animation: glitchTop 0.3s infinite;
-    }
-
-    h2:hover::after {
-      animation: glitchBottom 0.3s infinite;
-    }
-
-    @keyframes glitchTop {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, -1px); }
-      40% { transform: translate(1px, 1px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(2px, -1px); }
-      100% { transform: translate(0); }
-    }
-
-    @keyframes glitchBottom {
-      0% { transform: translate(0); }
-      20% { transform: translate(1px, 1px); }
-      40% { transform: translate(-2px, -1px); }
-      60% { transform: translate(2px, 1px); }
-      80% { transform: translate(-1px, -2px); }
-      100% { transform: translate(0); }
+      font-size: 20px;
+      margin-bottom: 20px;
     }
 
     p, iframe, form {
-      font-size: 12px;
+      font-size: 16px;
       line-height: 1.6;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
 
     form input[type="email"] {
       padding: 10px;
       margin-right: 5px;
       border: none;
-      font-family: 'Press Start 2P', monospace;
     }
 
     form input[type="submit"] {
@@ -216,140 +137,42 @@
       background-color: #141421;
       padding: 20px;
       text-align: center;
-      font-size: 10px;
+      font-size: 14px;
       color: #888;
-    }
-
-    #secret-message {
-      display: none;
-      padding: 40px 20px;
-      font-size: 12px;
-      color: #ff00cc;
-      background-color: rgba(255, 255, 255, 0.05);
     }
   </style>
 </head>
 
 <body>
-
-  <!-- LEVEL SELECT SCREEN -->
-  <div id="intro-screen">
-    <div id="intro-box">
-      <p>LOST BOY ODYSSEY – LEVEL SELECT</p>
-      <button onclick="startSite()">[ SIGNAL: MUSIC ]</button>
-      <button onclick="startSite()">[ SIGNAL: VISUALS ]</button>
-      <button onclick="startSite()">[ SIGNAL: ODYSSEY LOGS ]</button>
-    </div>
-  </div>
-
-  <!-- LOADING -->
-  <div id="loading-screen">DECODING TRANSMISSION: LOST BOY ODYSSEY...</div>
-
-  <!-- HEADER -->
   <header>
-    <img src="assets/images/logo.png" alt="Revilla Logo" class="logo">
+    <div class="revilla-title">REVILLA</div>
     <div class="sprite"></div>
   </header>
 
-  <!-- NAVIGATION -->
   <nav>
-    <a href="#home">Home</a>
-    <a href="#epk">EPK</a>
-    <a href="#music">Music</a>
-    <a href="#videos">Videos</a>
-    <a href="#tour">Tour</a>
-    <a href="#merch">Merch</a>
-    <a href="#contact">Contact</a>
-    <a href="#newsletter">Newsletter</a>
+    <div class="nav-container">
+      <a href="#home">Home</a>
+      <a href="#epk">EPK</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#tour">Tour</a>
+      <a href="#merch">Merch</a>
+      <a href="#contact">Contact</a>
+      <a href="#newsletter">Newsletter</a>
+    </div>
   </nav>
 
-  <!-- SECTIONS -->
   <section id="home">
-    <h2 data-text="Revilla: Lost Boy Odyssey">Revilla: Lost Boy Odyssey</h2>
+    <h2>Revilla: Lost Boy Odyssey</h2>
     <p>This isn’t a website. It’s a signal.<br>
-    A broadcast looping from somewhere past Saturn.<br><br>
     Revilla drifts through soundspace — a lost boy tracing emotion in static.<br>
-    Every beat a breadcrumb. Every glitch, a memory echo.<br><br>
-    Welcome to the Odyssey. Tune in. Drop low. Drift high.</p>
+    Welcome to the Odyssey.</p>
   </section>
 
-  <section id="epk">
-    <h2 data-text="Mission Briefing (EPK)">Mission Briefing (EPK)</h2>
-    <p><strong>Subject:</strong> Revilla<br>
-    <strong>Classification:</strong> Emotional Frequency Distorter<br>
-    <strong>Bio:</strong> Revilla crafts celestial soundscapes with scars from Earth.<br>
-    <strong>Press Assets:</strong> Downloadable .zip<br>
-    <strong>Links:</strong> Bandcamp, Spotify, Apple Music<br>
-    <strong>Contact:</strong> <a href="mailto:revilla.music@lostgalaxy.com">revilla.music@lostgalaxy.com</a></p>
-  </section>
-
-  <section id="music">
-    <h2 data-text="Signal Streams">Signal Streams</h2>
-    <iframe style="border: 0; width: 90%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=0000000000/size=large/bgcol=0e0e1a/linkcol=ffaad4/artwork=none/transparent=true/" seamless></iframe>
-  </section>
-
-  <section id="videos">
-    <h2 data-text="Visual Echoes">Visual Echoes</h2>
-    <iframe width="320" height="180" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-  </section>
-
-  <section id="tour">
-    <h2 data-text="Odyssey Coordinates">Odyssey Coordinates</h2>
-    <p>May 3 — Andromeda Bunker<br>June 1 — Saturn Lounge, Dock 9<br>July 14 — Terra Dusk Festival, Earth</p>
-  </section>
-
-  <section id="merch">
-    <h2 data-text="Artifacts">Artifacts</h2>
-    <p><a href="https://yourmerchstore.com" target="_blank">Visit the Portal</a></p>
-  </section>
-
-  <section id="contact">
-    <h2 data-text="Comms Link">Comms Link</h2>
-    <p>Inquiries from any galaxy:<br>
-    <a href="mailto:revilla.music@lostgalaxy.com">revilla.music@lostgalaxy.com</a></p>
-  </section>
-
-  <section id="newsletter">
-    <h2 data-text="Join the Transmission">Join the Transmission</h2>
-    <p>Subscribe for unreleased frequencies and glitch drops.</p>
-    <form action="https://your-mailing-list.com" method="post">
-      <input type="email" name="email" placeholder="you@example.com" required>
-      <input type="submit" value="Subscribe">
-    </form>
-  </section>
-
-  <!-- SECRET MESSAGE -->
-  <div id="secret-message">
-    <p>[SECURE SIGNAL]<br>
-    Lost Boy Log #0425:<br>
-    “To disappear is not to vanish — it’s to orbit unseen, waiting for resonance.”</p>
-  </div>
+  <!-- Add other sections (epk, music, etc.) here -->
 
   <footer>
-    &copy; 2025 Revilla | Lost Boy Odyssey | Broadcast ends when you do.
+    &copy; 2025 Revilla | Lost Boy Odyssey
   </footer>
-
-  <!-- SCRIPTS -->
-  <script>
-    function startSite() {
-      document.getElementById("intro-screen").style.display = "none";
-    }
-
-    window.addEventListener("load", function () {
-      document.getElementById("loading-screen").style.display = "none";
-    });
-
-    const konamiCode = [38,38,40,40,37,39,37,39,66,65];
-    let inputBuffer = [];
-
-    window.addEventListener("keydown", function(e) {
-      inputBuffer.push(e.keyCode);
-      if (inputBuffer.length > konamiCode.length) inputBuffer.shift();
-      if (JSON.stringify(inputBuffer) === JSON.stringify(konamiCode)) {
-        document.getElementById("secret-message").style.display = "block";
-      }
-    });
-  </script>
-
 </body>
 </html>
