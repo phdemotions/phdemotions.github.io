@@ -35,7 +35,7 @@
     }
 
     .revilla-title {
-      margin-bottom: 5px;
+      margin-bottom: 0;
       font-size: 48px;
       color: #a6f0ff;
       letter-spacing: 4px;
@@ -69,7 +69,10 @@
     nav {
       background-color: #1e1e2e;
       text-align: center;
-      padding: 10px;
+      padding: 4px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -250,7 +253,7 @@
 <body>
   <header>
     <div class="revilla-title">REVILLA</div>
-    <div class="sprite"></div>
+    <div class="sprite" style="margin-bottom: 0;"></div>
   </header>
 
   <nav>
