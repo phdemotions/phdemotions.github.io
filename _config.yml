@@ -19,10 +19,9 @@ locale                   : "en-CA"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
 title                    : "Josh Gonzales"
 title_separator          : "-"
-subtitle                 : PhD Candidate in Consumer Psychology | Emotion | Uncertainty | Creativity | Technology | AI
+subtitle                 : PhD Candidate in Consumer Psychology
 name                     : "Josh Gonzales"
-description              : >-
-  Josh Gonzales is a PhD Candidate in Marketing and Consumer Behaviour at the University of Guelph. His research explores how emotion and uncertainty shape decision-making in consumption, entertainment, and AI ethics. He writes regularly on public trust in algorithms, human creativity, and technological disruption.
+description              : ""
 url                      : https://phdemotions.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -68,7 +67,7 @@ reCaptcha:
   secret                 :
 atom_feed:
   path                   : # blank (default) uses feed.xml
-  hide                   : # true, false (default)
+  hide                   : true # true, false (default)
 search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : lunr # lunr (default), algolia, google
@@ -119,8 +118,8 @@ analytics:
 # Site Author
 author:
   name             : "Josh Gonzales"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "PhD in Marketing and Consumer Behaviour | Writing on AI, uncertainty, and emotional decision-making."
+  avatar           : "/assets/images/headshot.png"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio: "Josh Gonzales is a PhD Candidate in Marketing and Consumer Behaviour at the University of Guelph. His research explores how emotion and uncertainty shape decision-making in consumption, entertainment, and AI ethics. He writes regularly on public trust in algorithms, human creativity, and technological disruption."
   location         : University of Guelph 
   email            : jgonza10@uoguelph.ca
   links:
