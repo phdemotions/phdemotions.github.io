@@ -1,0 +1,24 @@
+---
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /blog/tags/{{ tag | slugify }}/
+layout: base.njk
+eleventyComputed:
+  title: "Posts tagged '{{ tag }}'"
+  description: "Blog posts about {{ tag }}"
+---
+
+<div class="container">
+  <h1>Posts tagged "{{ tag }}"</h1>
+  <p><a href="/blog/tags/">← View all tags</a></p>
+
+  <div class="post-list">
+    {% set taggedPosts = collections.blog | filterByTag(tag) %}
+    {% for post in taggedPosts %}
+      {% set post = post %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+</div>

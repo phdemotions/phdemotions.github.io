@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Blog Tags
+description: Browse blog posts by topic.
+permalink: /blog/tags/
+---
+
+<div class="container">
+  <h1>{{ title }}</h1>
+  <p class="text-muted">{{ description }}</p>
+
+  <ul class="tag-list">
+    {% for tag in collections.tagList %}
+    <li>
+      <a href="/blog/tags/{{ tag | slugify }}/" class="tag">#{{ tag }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+---
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="text-muted">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+
+  <div class="post-list">
+    {% for post in collections.blog %}
+      {% set post = post %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<header class="site-header" role="banner">
+  <nav class="container" role="navigation" aria-label="Main navigation">
+    <a href="/" class="site-logo" aria-label="Home">{{ site.name }}</a>
+    <div class="nav-right">
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="/about/" {% if page.url == '/about/' %}aria-current="page"{% endif %}>About</a></li>
+        <li><a href="/blog/" {% if page.url.startsWith('/blog/') %}aria-current="page"{% endif %}>Blog</a></li>
+        <li><a href="/projects/" {% if page.url.startsWith('/projects/') %}aria-current="page"{% endif %}>Projects</a></li>
+        <li><a href="/publications/" {% if page.url == '/publications/' %}aria-current="page"{% endif %}>Publications</a></li>
+        <li><a href="/media/" {% if page.url == '/media/' %}aria-current="page"{% endif %}>Media</a></li>
+        <li><a href="/contact/" {% if page.url == '/contact/' %}aria-current="page"{% endif %}>Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-toggle-icon"></span>
+      </button>
+      <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="hamburger-icon">☰</span>
+      </button>
+    </div>
+  </nav>
+</header>

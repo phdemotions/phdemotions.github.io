@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+
+<article class="container">
+  <header>
+    <h1>{{ title }}</h1>
+
+    {% if status %}
+    <span class="project-status {{ status }}">{{ status }}</span>
+    {% endif %}
+
+    {% if description %}
+    <p class="text-muted">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+
+  {% if links %}
+  <div class="project-links">
+    <h3>Project Links</h3>
+    {% for link in links %}
+    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <p><a href="/projects/">← Back to all projects</a></p>
+</article>

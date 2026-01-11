@@ -1,0 +1,108 @@
+---
+layout: base.njk
+---
+
+<div class="container">
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 id="hero-heading">{{ site.name }}</h1>
+        <p class="hero-bio">{{ site.description }}</p>
+        <div class="hero-links">
+          <a href="{{ site.googleScholar }}" target="_blank" rel="noopener noreferrer" class="hero-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            Scholar
+          </a>
+          <a href="{{ site.cvUrl }}" class="hero-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            CV
+          </a>
+          <a href="https://twitter.com/phdemotions" target="_blank" rel="noopener noreferrer" class="hero-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter
+          </a>
+          <a href="https://instagram.com/phdemotions" target="_blank" rel="noopener noreferrer" class="hero-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Instagram
+          </a>
+          <a href="/about/" class="hero-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            About
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="/assets/headshot.png" alt="Josh Gonzales headshot" class="headshot">
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="newsletter-signup-full" aria-labelledby="newsletter-heading">
+  <div class="container">
+    <h3 id="newsletter-heading">Subscribe to my newsletter</h3>
+    <p>Get insights on consumer psychology, research updates, and thoughtful essays delivered to your inbox.</p>
+
+    <!-- ConvertKit embed code placeholder -->
+    <!-- To add your ConvertKit form:
+         1. Go to your ConvertKit dashboard
+         2. Navigate to your form
+         3. Click "Embed" and choose "HTML"
+         4. Copy the embed code and paste it below
+         5. Remove these HTML comments
+    -->
+    <!-- PASTE CONVERTKIT EMBED CODE HERE -->
+
+    <p><em>Email signup form will be embedded here using ConvertKit.</em></p>
+    <p><a href="/newsletter/">View newsletter archive →</a></p>
+  </div>
+</section>
+
+<div class="container">
+  {% if collections.featuredPosts.length > 0 %}
+  <section class="section" aria-labelledby="featured-heading">
+    <div class="section-header">
+      <h2 id="featured-heading">Featured Posts</h2>
+    </div>
+    {% include "featured-carousel.njk" %}
+  </section>
+  {% endif %}
+
+  <section class="section" aria-labelledby="latest-heading">
+    <div class="section-header">
+      <h2 id="latest-heading">Latest from the Blog</h2>
+    </div>
+    {% for post in collections.blog | limit(3) %}
+      {% set post = post %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+    <div style="text-align: center; margin-top: var(--space-md);">
+      <a href="/blog/" class="view-all">View all posts →</a>
+    </div>
+  </section>
+
+  {% if collections.media.length > 0 %}
+  <section class="section" aria-labelledby="media-heading">
+    <div class="section-header">
+      <h2 id="media-heading">Recent Media Appearances</h2>
+    </div>
+    <ul class="media-list">
+      {% for item in collections.media | limit(3) %}
+      <li class="media-item">
+        <div class="media-outlet">{{ item.data.outlet }}</div>
+        <h3 class="media-title"><a href="{{ item.data.url }}" target="_blank" rel="noopener noreferrer">{{ item.data.title }}</a></h3>
+        <div class="media-date">
+          <time datetime="{{ item.date | htmlDateString }}">{{ item.date | readableDate }}</time>
+        </div>
+        {% if item.data.excerpt %}
+        <p class="media-excerpt">{{ item.data.excerpt }}</p>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <div style="text-align: center; margin-top: var(--space-md);">
+      <a href="/media/" class="view-all">View all →</a>
+    </div>
+  </section>
+  {% endif %}
+</div>

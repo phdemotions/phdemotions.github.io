@@ -1,0 +1,48 @@
+---
+layout: base.njk
+ogType: article
+---
+
+<article class="container">
+  <header>
+    <h1>{{ title }}</h1>
+
+    <div class="post-meta">
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <span aria-hidden="true">•</span>
+      <span class="reading-time">{{ content | readingTime }} min read</span>
+      {% if tags %}
+      <span aria-hidden="true">•</span>
+      <span class="post-tags" aria-label="Tags">
+        {% for tag in tags %}
+        <a href="/blog/tags/{{ tag | slugify }}/" class="tag">#{{ tag }}</a>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </div>
+
+    {% if canonical_url %}
+    <aside class="canonical-notice" role="note">
+      <strong>Note:</strong> This article was originally published on <a href="{{ canonical_url }}" target="_blank" rel="noopener noreferrer">another platform</a>. This is a cross-post for archival purposes.
+    </aside>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+
+  {% if tags %}
+  {% set currentPage = { url: page.url, data: { tags: tags } } %}
+  {% set relatedPosts = collections.blog | relatedPosts(currentPage, 3) %}
+  {% if relatedPosts.length > 0 %}
+  <aside class="related-posts" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related Posts</h2>
+    {% for post in relatedPosts %}
+      {% set post = post %}
+      {% include "post-card.njk" %}
+    {% endfor %}
+  </aside>
+  {% endif %}
+  {% endif %}
+</article>

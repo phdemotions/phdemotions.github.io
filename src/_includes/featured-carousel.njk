@@ -1,0 +1,73 @@
+<div class="featured-carousel">
+  <div class="carousel-container" id="carousel-container">
+    {% for post in collections.featuredPosts %}
+    <div class="carousel-slide">
+      <a href="{{ post.url }}" class="featured-card">
+        {% if post.data.featuredImage %}
+        <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }}" class="featured-image">
+        {% else %}
+        <div class="featured-image" style="background: linear-gradient(135deg, var(--color-highlight) 0%, var(--color-accent) 100%);"></div>
+        {% endif %}
+        <h3>{{ post.data.title }}</h3>
+        {% if post.data.excerpt %}
+        <p class="featured-excerpt">{{ post.data.excerpt }}</p>
+        {% else %}
+        <p class="featured-excerpt">{{ post.templateContent | excerpt }}</p>
+        {% endif %}
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="carousel-controls">
+    <button class="carousel-btn" id="prev-btn" aria-label="Previous slide">‹</button>
+    <button class="carousel-btn" id="next-btn" aria-label="Next slide">›</button>
+  </div>
+
+  <div class="carousel-dots" id="carousel-dots">
+    {% for post in collections.featuredPosts %}
+    <button class="carousel-dot {% if loop.index0 == 0 %}active{% endif %}" data-index="{{ loop.index0 }}" aria-label="Go to slide {{ loop.index }}"></button>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+(function() {
+  const container = document.getElementById('carousel-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const slides = document.querySelectorAll('.carousel-slide');
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateCarousel();
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+  if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      currentIndex = parseInt(dot.dataset.index);
+      updateCarousel();
+    });
+  });
+
+  // Auto-advance every 5 seconds
+  setInterval(nextSlide, 5000);
+})();
+</script>

@@ -1,0 +1,22 @@
+{
+  "name": "joshgonzales-ca",
+  "version": "1.0.0",
+  "description": "Academic portfolio and blog for Josh Gonzales - PhD candidate studying consumer psychology",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "keywords": ["11ty", "academic", "blog", "portfolio"],
+  "author": "Josh Gonzales",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "markdown-it": "^13.0.2",
+    "markdown-it-anchor": "^8.6.7",
+    "luxon": "^3.4.4"
+  }
+}

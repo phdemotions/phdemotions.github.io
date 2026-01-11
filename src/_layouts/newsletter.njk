@@ -1,0 +1,32 @@
+---
+layout: base.njk
+---
+
+<article class="container">
+  <header>
+    <h1>{{ title }}</h1>
+
+    <div class="post-meta">
+      <time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+      <span aria-hidden="true">•</span>
+      <span>Newsletter Issue</span>
+    </div>
+
+    {% if excerpt %}
+    <p class="text-muted">{{ excerpt }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content | safe }}
+  </div>
+
+  <aside class="newsletter-signup">
+    <h3>Subscribe to my newsletter</h3>
+    <p>Get insights like this delivered to your inbox. Subscribe below.</p>
+    <!-- ConvertKit embed code placeholder -->
+    <p><em>Email signup form will be embedded here using ConvertKit.</em></p>
+  </aside>
+
+  <p><a href="/newsletter/">← Back to newsletter archive</a></p>
+</article>

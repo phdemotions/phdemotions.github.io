@@ -1,0 +1,86 @@
+---
+layout: base.njk
+---
+
+<div class="container">
+  <header>
+    <h1>{{ title }}</h1>
+    {% if description %}
+    <p class="text-muted">{{ description }}</p>
+    {% endif %}
+  </header>
+
+  {{ content | safe }}
+
+  <ul class="publication-list">
+    {% for pub in collections.publications %}
+    <li class="publication-item">
+      <h3 class="publication-title">{{ pub.data.title }}</h3>
+
+      <div class="publication-meta">
+        {% if pub.data.authors %}
+        <div class="publication-authors">{{ pub.data.authors }}</div>
+        {% endif %}
+
+        <div class="publication-details">
+          {% if pub.data.journal %}
+          <span><a href="{{ pub.data.journal_url }}" target="_blank" rel="noopener noreferrer"><em>{{ pub.data.journal }}</em></a></span>
+          {% endif %}
+
+          {% if pub.data.year %}
+          <span aria-hidden="true">•</span>
+          <span>{{ pub.data.year }}</span>
+          {% endif %}
+
+          {% if pub.data.volume %}
+          <span aria-hidden="true">•</span>
+          <span>Vol. {{ pub.data.volume }}{% if pub.data.issue %}({{ pub.data.issue }}){% endif %}</span>
+          {% endif %}
+
+          {% if pub.data.citations %}
+          <span aria-hidden="true">•</span>
+          <span class="citation-count" aria-label="Citation count">{{ pub.data.citations }} citations</span>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if pub.data.abstract %}
+      <p>{{ pub.data.abstract }}</p>
+      {% endif %}
+
+      {% if pub.data.pdf_url or pub.data.doi %}
+      <div class="publication-links">
+        {% if pub.data.pdf_url %}
+        <a href="{{ pub.data.pdf_url }}" target="_blank" rel="noopener noreferrer">PDF</a>
+        {% endif %}
+        {% if pub.data.doi %}
+        <a href="https://doi.org/{{ pub.data.doi }}" target="_blank" rel="noopener noreferrer">DOI</a>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {# JSON-LD Structured Data for each publication #}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "headline": "{{ pub.data.title }}",
+        {% if pub.data.authors %}"author": "{{ pub.data.authors }}",{% endif %}
+        {% if pub.data.journal %}"publisher": {
+          "@type": "Organization",
+          "name": "{{ pub.data.journal }}"
+        },{% endif %}
+        {% if pub.data.year %}"datePublished": "{{ pub.data.year }}",{% endif %}
+        {% if pub.data.abstract %}"abstract": {{ pub.data.abstract | dump | safe }},{% endif %}
+        {% if pub.data.doi %}"identifier": {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "{{ pub.data.doi }}"
+        },{% endif %}
+        "url": "{{ site.url }}{{ pub.url }}"
+      }
+      </script>
+    </li>
+    {% endfor %}
+  </ul>
+</div>

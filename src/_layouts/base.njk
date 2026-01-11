@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ site.title }}</title>
+
+  {# SEO Meta Tags #}
+  <meta name="description" content="{{ description or excerpt or site.description }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="canonical" href="{{ canonical_url or (site.url + page.url) }}">
+
+  {# Open Graph #}
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or excerpt or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="{{ site.locale }}">
+  {% if image %}
+  <meta property="og:image" content="{{ site.url }}{{ image }}">
+  {% endif %}
+
+  {# Twitter Card #}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="{{ site.author.twitter }}">
+  <meta name="twitter:title" content="{{ title or site.title }}">
+  <meta name="twitter:description" content="{{ description or excerpt or site.description }}">
+  {% if image %}
+  <meta name="twitter:image" content="{{ site.url }}{{ image }}">
+  {% endif %}
+
+  {# RSS Feed #}
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ site.url }}/feed.xml">
+
+  {# Favicon - placeholder #}
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+
+  {# Styles #}
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  {# Google Analytics 4 - Add your tracking ID below #}
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  {% include "header.njk" %}
+
+  <main id="main-content" role="main" aria-label="Main content">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script>
+    // Theme toggle functionality
+    (function() {
+      const html = document.documentElement;
+      const themeToggle = document.getElementById('theme-toggle');
+
+      // Check for saved theme preference or default to system preference
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme) {
+        html.setAttribute('data-theme', currentTheme);
+      }
+
+      // Toggle theme
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const currentTheme = html.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+          html.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+        });
+      }
+    })();
+
+    // Mobile menu toggle functionality
+    (function() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+
+      if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+          const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+          this.setAttribute('aria-expanded', !isExpanded);
+          navMenu.classList.toggle('active');
+
+          // Update icon
+          const icon = this.querySelector('.hamburger-icon');
+          if (icon) {
+            icon.textContent = isExpanded ? '☰' : '✕';
+          }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+          const isClickInsideNav = navMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            const icon = mobileMenuToggle.querySelector('.hamburger-icon');
+            if (icon) {
+              icon.textContent = '☰';
+            }
+          }
+        });
+
+        // Close menu when clicking a link
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            const icon = mobileMenuToggle.querySelector('.hamburger-icon');
+            if (icon) {
+              icon.textContent = '☰';
+            }
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
