@@ -872,6 +872,15 @@ h4:hover .header-anchor {
   margin-bottom: 0;
 }
 
+.newsletter-signup-full a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+.newsletter-signup-full a:hover {
+  color: var(--color-accent-hover);
+}
+
 /* ===================================
    Publications
    =================================== */
