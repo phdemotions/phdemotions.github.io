@@ -362,9 +362,17 @@ a:focus {
 
 .footer-content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
   margin-bottom: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .footer-content {
+    grid-template-columns: 2fr 1fr 2fr;
+    gap: var(--space-xl);
+    align-items: start;
+  }
 }
 
 .footer-section h3 {
@@ -380,6 +388,7 @@ a:focus {
 
 .footer-section ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .footer-section li {
@@ -390,6 +399,11 @@ a:focus {
   font-family: var(--font-sans);
   font-size: 0.9375rem;
   color: var(--color-text-light);
+  transition: color 0.2s ease;
+}
+
+.footer-section a:hover {
+  color: var(--color-accent);
 }
 
 .footer-section p {
@@ -397,6 +411,7 @@ a:focus {
   font-size: 0.9375rem;
   color: var(--color-text-light);
   line-height: 1.6;
+  margin: 0;
 }
 
 .footer-bottom {
