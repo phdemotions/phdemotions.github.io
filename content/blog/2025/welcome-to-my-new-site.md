@@ -1,6 +1,6 @@
 ---
 title: "Welcome to My New Site"
-date: 2026-01-11
+date: 2025-01-11
 excerpt: "Introducing my new website —a hub for my research, writing, and thoughts on consumer psychology and decision-making."
 tags: ["announcements", "meta"]
 published: true
